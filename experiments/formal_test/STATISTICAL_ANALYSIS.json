@@ -1,0 +1,58 @@
+{
+  "formal_test_rows": 1074,
+  "baseline_calls": 1214,
+  "learned_calls": 1007,
+  "calls_saved": 207,
+  "baseline_calls_per_question": 1.1303538175046555,
+  "learned_calls_per_question": 0.9376163873370578,
+  "calls_per_question_reduction": 0.1927374301675977,
+  "calls_per_question_reduction_bootstrap_95ci": [
+    0.15270019,
+    0.23277467
+  ],
+  "baseline_pair_accuracy": 0.6359404096834265,
+  "learned_pair_accuracy": 0.6564245810055865,
+  "pair_accuracy_delta_pp": 2.048417132216007,
+  "pair_accuracy_delta_bootstrap_95ci_pp": [
+    -0.27932961,
+    4.46927374
+  ],
+  "mcnemar_discordant": {
+    "baseline_correct_learned_wrong": 74,
+    "baseline_wrong_learned_correct": 96
+  },
+  "mcnemar_exact_p": 0.10698657283154843,
+  "baseline_zero_call_coverage": 0.25977653631284914,
+  "learned_zero_call_coverage": 0.3463687150837989,
+  "zero_call_coverage_delta_pp": 8.659217877094976,
+  "zero_call_coverage_delta_bootstrap_95ci_pp": [
+    6.23836127,
+    11.08007449
+  ],
+  "baseline_autonomous_precision": {
+    "hits": 262,
+    "n": 279,
+    "value": 0.9390681003584229,
+    "wilson_95ci": [
+      0.9045970539732809,
+      0.9616125923124018
+    ]
+  },
+  "learned_autonomous_precision": {
+    "hits": 359,
+    "n": 372,
+    "value": 0.9650537634408602,
+    "wilson_95ci": [
+      0.9411355147252074,
+      0.9794654245263328
+    ]
+  },
+  "stage_calls": {
+    "baseline_entity": 689,
+    "learned_entity": 588,
+    "baseline_property": 525,
+    "learned_property": 419
+  },
+  "bootstrap_replicates": 100000,
+  "bootstrap_seed": 1562
+}

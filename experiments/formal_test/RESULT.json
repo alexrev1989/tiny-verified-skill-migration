@@ -1,0 +1,136 @@
+{
+  "baseline": {
+    "any_llm_call_n": 794,
+    "any_llm_call_rate": 0.7392923649906891,
+    "autonomous_zero_call_coverage": 0.25977653631284914,
+    "autonomous_zero_call_n": 279,
+    "autonomous_zero_call_pair_hits": 262,
+    "autonomous_zero_call_pair_precision": 0.9390681003584229,
+    "branch": "BASELINE",
+    "calls_per_question": 1.1303538175046555,
+    "entity_hybrid_accuracy": 0.7253258845437617,
+    "hybrid_pair_accuracy": 0.6359404096834265,
+    "property_pid_accuracy_unconditional": 0.6657355679702048,
+    "rows": 1074,
+    "tiny_best_effort_pair_accuracy": 0.4934823091247672,
+    "total_real_qwen_calls": 1214,
+    "zero_actual_call_n": 280,
+    "zero_actual_call_rate": 0.26070763500931093
+  },
+  "completed_utc": "2026-08-29T05:06:14.321949+00:00",
+  "effect": {
+    "autonomous_zero_call_coverage_delta_pp": 8.659217877094976,
+    "calls_per_question_reduction": 0.1927374301675977,
+    "hybrid_pair_accuracy_delta_pp": 2.048417132216007,
+    "real_qwen_calls_saved": 207
+  },
+  "guardrails": {
+    "checkpoint_selection": false,
+    "formal_test_claim": true,
+    "gold_excluded_from_ranking_and_teacher_after_structural_sealing": true,
+    "lcquad2_test_accessed": true,
+    "lcquad2_test_accessed_only_after_prereg": true,
+    "mintaka_test_accessed": false,
+    "posthoc_rescue": false,
+    "qald10_test_accessed": false,
+    "second_test_run_for_tuning": false,
+    "separate_real_teacher_passes": true,
+    "simplequestions_test_accessed": false,
+    "threshold_tuning": false,
+    "training": false
+  },
+  "learned": {
+    "any_llm_call_n": 701,
+    "any_llm_call_rate": 0.6527001862197392,
+    "autonomous_zero_call_coverage": 0.3463687150837989,
+    "autonomous_zero_call_n": 372,
+    "autonomous_zero_call_pair_hits": 359,
+    "autonomous_zero_call_pair_precision": 0.9650537634408602,
+    "branch": "LEARNED",
+    "calls_per_question": 0.9376163873370578,
+    "entity_hybrid_accuracy": 0.7402234636871509,
+    "hybrid_pair_accuracy": 0.6564245810055865,
+    "property_pid_accuracy_unconditional": 0.6899441340782123,
+    "rows": 1074,
+    "tiny_best_effort_pair_accuracy": 0.5418994413407822,
+    "total_real_qwen_calls": 1007,
+    "zero_actual_call_n": 373,
+    "zero_actual_call_rate": 0.34729981378026076
+  },
+  "models": {
+    "base_entity": {
+      "params": 109482240,
+      "sha256": "2a2cffa693f6f7e65da7553417e1c18a0839df27d2f744a9add37ba0aebfcfc0"
+    },
+    "learned_entity": {
+      "params": 109482240,
+      "sha256": "82cdae409e28b7c392fea7d37872dc6d82f4a306c5e6dc4646b060837f6d8e4b"
+    },
+    "learned_property_sha256": "fec50285e9727d9ee7fa1b4b1f60b1702bea1f61c14298f3f61d79d1e8eb4083",
+    "property_base_revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae"
+  },
+  "next_step": "Formal integrated confirmation complete. Freeze result; no more benchmark tuning. Move to paper/runtime productization.",
+  "primary_test": {
+    "conditions": {
+      "calls_per_question_reduction_gte_005": true,
+      "candidate_recall_gte_060": true,
+      "eligible_rows_gte_100": true,
+      "guardrails": true,
+      "learned_autonomous_n_gte_20": true,
+      "learned_autonomous_pair_precision_gte_085": true,
+      "learned_hybrid_drop_lte_1pp": true
+    },
+    "pass": true
+  },
+  "script_sha256": "084c3cc51d5cdc9af03e2d27d037113129955c5882b9b0d313773693fa82d0eb",
+  "source": {
+    "candidate_recall": 0.9087523277467412,
+    "dataset": "LC-QuAD 2.0",
+    "eval_rows": 1074,
+    "gold_sealed_sha256": "74d8d7d457d311ed59efcaca688d1d9653c6857f91a2d0dd0d5c29fa91cf0e16",
+    "sample_audit": {
+      "all_qualifying_rows_used": true,
+      "nonempty_question_rows": 6030,
+      "raw_test_rows": 6046,
+      "selected_rows": 1074,
+      "selection_uses_model_outputs": false,
+      "single_direct_qid_pid_rows_in_catalog": 1139,
+      "snapshot_compatible_rows": 1074,
+      "test_source_bytes": 6578362,
+      "test_source_sha256": "ba1500efe6308ba86af7f91033e184778204dca7ba358c77222626ae6bd3454d",
+      "test_url": "https://raw.githubusercontent.com/AskNowQA/LC-QuAD2.0/master/dataset/test.json"
+    },
+    "sha256": "ba1500efe6308ba86af7f91033e184778204dca7ba358c77222626ae6bd3454d",
+    "split": "OFFICIAL TEST",
+    "test_inputs_sha256": "a125541ee17300addf3088d8407efc07b7b8288656750de10b76289ccaff41a8",
+    "url": "https://raw.githubusercontent.com/AskNowQA/LC-QuAD2.0/master/dataset/test.json"
+  },
+  "status": "INTEGRATED_END_TO_END_FORMAL_TEST_COMPLETE",
+  "strong_test": {
+    "conditions": {
+      "calls_per_question_reduction_gte_010": true,
+      "learned_autonomous_n_gte_40": true,
+      "learned_autonomous_pair_precision_gte_090": true,
+      "learned_hybrid_accuracy_gte_baseline": true,
+      "primary_integrity": true
+    },
+    "pass": true
+  },
+  "teacher": {
+    "commit_hash": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "device": "cuda",
+    "do_sample": false,
+    "max_new_tokens": 8,
+    "max_prompt_tokens": 1536,
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "parameter_count": 3085938688,
+    "passes": {
+      "baseline_entity_seconds": 36.30003500000748,
+      "baseline_property_seconds": 24.640495400002692,
+      "learned_entity_seconds": 31.01499650000187,
+      "learned_property_seconds": 20.12058080000861
+    },
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1"
+  },
+  "version": "TinyLearner-v1.56.2-lcquad2-formal-integrated-test"
+}

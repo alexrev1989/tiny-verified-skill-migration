@@ -1,0 +1,94 @@
+{
+  "01_Paper_Author/Tiny_Verified_Skill_Migration_Alexander_Revyakin.pdf": {
+    "bytes": 335214,
+    "sha256": "840ca7d2843386a8a52004da098b3b2afd3264c9083481fb8acb06865f7ecfd0"
+  },
+  "01_Paper_Author/main.bbl": {
+    "bytes": 2943,
+    "sha256": "4b3be02f097477e8b5e441ae299e8e5e0ada1f393ac5e4aefe8e3e2bf43ce68d"
+  },
+  "01_Paper_Author/main.tex": {
+    "bytes": 41171,
+    "sha256": "ba1afcd85262250986e0b756594ada72052322b96b7a667434fdfe31573fb9ea"
+  },
+  "01_Paper_Author/references.bib": {
+    "bytes": 3768,
+    "sha256": "6435e5c8fc58483d0182d31570327bacdb8f953d00ce5a76f8b602deb85e7680"
+  },
+  "02_ICLR_Anonymous/ICLR_STYLE_NOTE.txt": {
+    "bytes": 341,
+    "sha256": "466f1be4b8606aba95beee8fecd83c59b3340185e7f1f2b99030a26310e9a005"
+  },
+  "02_ICLR_Anonymous/Tiny_Verified_Skill_Migration_ICLR_Anonymous.pdf": {
+    "bytes": 334768,
+    "sha256": "90c7b84d381943c115a9bdf252ab891186e814e4f2eeea1e28503ce83ab68074"
+  },
+  "02_ICLR_Anonymous/main_anonymous.bbl": {
+    "bytes": 2943,
+    "sha256": "4b3be02f097477e8b5e441ae299e8e5e0ada1f393ac5e4aefe8e3e2bf43ce68d"
+  },
+  "02_ICLR_Anonymous/main_anonymous.tex": {
+    "bytes": 41143,
+    "sha256": "93112faf20c5371e9639317b782466a34cd10985884393118fd350f4856ae4d3"
+  },
+  "02_ICLR_Anonymous/references.bib": {
+    "bytes": 3768,
+    "sha256": "6435e5c8fc58483d0182d31570327bacdb8f953d00ce5a76f8b602deb85e7680"
+  },
+  "03_ArXiv_Upload/main.bbl": {
+    "bytes": 2943,
+    "sha256": "4b3be02f097477e8b5e441ae299e8e5e0ada1f393ac5e4aefe8e3e2bf43ce68d"
+  },
+  "03_ArXiv_Upload/main.tex": {
+    "bytes": 41171,
+    "sha256": "ba1afcd85262250986e0b756594ada72052322b96b7a667434fdfe31573fb9ea"
+  },
+  "03_ArXiv_Upload/reference_compiled.pdf": {
+    "bytes": 335214,
+    "sha256": "840ca7d2843386a8a52004da098b3b2afd3264c9083481fb8acb06865f7ecfd0"
+  },
+  "03_ArXiv_Upload/references.bib": {
+    "bytes": 3768,
+    "sha256": "6435e5c8fc58483d0182d31570327bacdb8f953d00ce5a76f8b602deb85e7680"
+  },
+  "04_Evidence/FORMAL_BASELINE_TRACES.jsonl": {
+    "bytes": 507063,
+    "sha256": "fa1bc67c509295a039e7328fdb289aa628741dd1ec61ab9254af6ef223dd7642"
+  },
+  "04_Evidence/FORMAL_LEARNED_TRACES.jsonl": {
+    "bytes": 506276,
+    "sha256": "bdbca7375af6c696032e7ee7f7ebbeb176e04cba48d171d97a882bd0636f08b4"
+  },
+  "04_Evidence/FORMAL_TEST_RESULT_v1562.json": {
+    "bytes": 5471,
+    "sha256": "d7080e69f7ad392dde60416cd4d51fb06e6740bcae1ec04dff32c957c619a268"
+  },
+  "04_Evidence/FORMAL_TEST_SCRIPT_v1562.py": {
+    "bytes": 73240,
+    "sha256": "084c3cc51d5cdc9af03e2d27d037113129955c5882b9b0d313773693fa82d0eb"
+  },
+  "04_Evidence/STATISTICAL_ANALYSIS.json": {
+    "bytes": 1538,
+    "sha256": "efa61b5a3c83e154ad237419e06e77a28e9ac2b7b1192e78844353d770c27afb"
+  },
+  "05_Submission_Notes/FINAL_READINESS.md": {
+    "bytes": 984,
+    "sha256": "140a8306e4544a026cc103663922c0154f67312f0ce7002005a1d3a49ab0534d"
+  },
+  "05_Submission_Notes/ICLR_2027_CURRENT_REQUIREMENTS.txt": {
+    "bytes": 502,
+    "sha256": "56525bd7a1744e74ab58d3e7768ede3868487b8b22d190f0e613404ce55a7e78"
+  },
+  "05_Submission_Notes/LITERATURE_VERIFICATION.md": {
+    "bytes": 1008,
+    "sha256": "1d55c4d7537e499f159972632fecadde7af515d130743bd7d6300918599e1eaa"
+  },
+  "05_Submission_Notes/SUBMISSION_METADATA.md": {
+    "bytes": 2218,
+    "sha256": "29d7817aa4e0b29e9ebf2586f4e4eee88ca9f7c41c8a406b272b88d44046268d"
+  },
+  "README.md": {
+    "bytes": 1609,
+    "sha256": "b6fae5a3b2e7f6a4f901b672cde3a9314520ea5ce5949bd45707f7c37c7de0cb"
+  }
+}

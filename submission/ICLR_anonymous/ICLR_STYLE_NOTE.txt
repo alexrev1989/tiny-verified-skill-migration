@@ -1,0 +1,3 @@
+Before OpenReview submission, port main_anonymous.tex into the official ICLR 2027 style package without modifying the style file, then recompile and verify <=9 main-text pages.
+Official guidelines: https://iclr.cc/Conferences/2027/AuthorGuidelines
+Official style package: https://media.iclr.cc/Conferences/ICLR2027/iclr-2027-style-files.zip

@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{bordes2015simplequestions}
+Antoine Bordes, Nicolas Usunier, Sumit Chopra, and Jason Weston.
+\newblock Large-scale simple question answering with memory networks.
+\newblock {\em arXiv preprint arXiv:1506.02075}, 2015.
+
+\bibitem{dubey2019lcquad2}
+Mohnish Dubey, Debayan Banerjee, Abdelrahman Abdelkawi, and Jens Lehmann.
+\newblock Lc-quad 2.0: A large dataset for complex question answering over
+  wikidata and dbpedia.
+\newblock In {\em The Semantic Web -- ISWC 2019}, pages 69--78. Springer, 2019.
+
+\bibitem{guo2026routenlp}
+Dongxin Guo, Jikun Wu, and Siu~Ming Yiu.
+\newblock Routenlp: Closed-loop llm routing with conformal cascading and
+  distillation co-optimization.
+\newblock {\em arXiv preprint arXiv:2604.23577}, 2026.
+
+\bibitem{ong2024routellm}
+Isaac Ong, Amjad Almahairi, Vincent Wu, Wei-Lin Chiang, Tianhao Wu, Joseph~E.
+  Gonzalez, M.~Waleed Kadous, and Ion Stoica.
+\newblock Routellm: Learning to route llms with preference data.
+\newblock {\em arXiv preprint arXiv:2406.18665}, 2024.
+
+\bibitem{pan2026anything2skill}
+Qianjun Pan, Yutao Yang, Junsong Li, Jie Zhou, Kai Chen, Xin Li, Qin Chen, and
+  Liang He.
+\newblock Anything2skill: Compiling external knowledge into reusable skills for
+  agents.
+\newblock {\em arXiv preprint arXiv:2606.09316}, 2026.
+
+\bibitem{qwen2024qwen25}
+{Qwen Team}, An~Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo~Zheng, Bowen
+  Yu, et~al.
+\newblock Qwen2.5 technical report.
+\newblock {\em arXiv preprint arXiv:2412.15115}, 2024.
+
+\bibitem{ramirez2024cache}
+Guillem Ram{\'i}rez, Matthias Lindemann, Alexandra Birch, and Ivan Titov.
+\newblock Cache {\&} distil: Optimising {API} calls to large language models.
+\newblock In {\em Findings of the Association for Computational Linguistics:
+  ACL 2024}, pages 11838--11853. Association for Computational Linguistics,
+  2024.
+
+\bibitem{sen2022mintaka}
+Priyanka Sen, Alham~Fikri Aji, and Amir Saffari.
+\newblock Mintaka: A complex, natural, and multilingual dataset for end-to-end
+  question answering.
+\newblock In {\em Proceedings of the 29th International Conference on
+  Computational Linguistics}, pages 1604--1619, 2022.
+
+\bibitem{vrandecic2014wikidata}
+Denny Vrande{\v{c}}i{\'c} and Markus Kr{\"o}tzsch.
+\newblock Wikidata: A free collaborative knowledgebase.
+\newblock {\em Communications of the ACM}, 57(10):78--85, 2014.
+
+\bibitem{xia2026ovcsd}
+Xu~Xia, Jinghua Piao, Min Yang, Xiaochong Lan, Jiaju Chen, and Yong Li.
+\newblock From scoring to acting: Outcome-verified comparative
+  self-distillation for llm agents.
+\newblock {\em arXiv preprint arXiv:2607.27937}, 2026.
+
+\bibitem{yao2026mera}
+Yuhang Yao, Zeyu Wang, Wanyi Chen, Tongyun Yang, Yuhang Han, Jie Xiao, Chengke
+  Bao, Tianyi Zhao, Lynn Ai, Eric Yang, and Tianyu Shi.
+\newblock Mera: Model evolution and routing with skill adaptation for agentic
+  systems at scale.
+\newblock {\em arXiv preprint arXiv:2608.10333}, 2026.
+
+\end{thebibliography}

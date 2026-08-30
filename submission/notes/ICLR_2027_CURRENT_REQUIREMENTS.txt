@@ -1,0 +1,9 @@
+Checked 2026-08-29 against official ICLR 2027 Author Guidelines:
+- Abstract deadline: 2026-09-18 11:59 PM AOE.
+- Full paper deadline: 2026-09-25 AOE.
+- Double blind; identity in main/supplement causes desk rejection.
+- Main text <= 9 pages at submission; references and appendices excluded.
+- Official 2027 style files required.
+- AI Use Statement required and does not count toward the page limit.
+- arXiv preprints are allowed during review.
+Source: https://iclr.cc/Conferences/2027/AuthorGuidelines
