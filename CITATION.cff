@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Tiny or its experimental results, please cite this work."
+title: "Tiny: Verified Skill Migration for Reducing LLM Fallbacks in Neuro-Symbolic Question Answering"
+type: article
+authors:
+  - given-names: Alexander
+    family-names: Revyakin
+version: 1.0.0
+date-released: 2026-08-30
+license: CC-BY-4.0
+repository-code: "https://github.com/alexrev1989/tiny-verified-skill-migration"
+url: "https://alexrev1989.github.io/tiny-verified-skill-migration/"
+abstract: >-
+  Tiny studies verified skill migration in a neuro-symbolic question-answering
+  pipeline: authoritative factual knowledge remains external and inspectable,
+  while independently verified LLM fallback experience can train compact
+  procedural models under frozen competence gates.
