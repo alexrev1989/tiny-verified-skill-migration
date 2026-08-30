@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny — Verified Skill Migration</title>
+  <meta name="description" content="Tiny explores Verified Skill Migration: independently verified LLM fallback experience is absorbed into compact procedural models while factual knowledge remains external and inspectable.">
+  <meta name="author" content="Alexander Revyakin">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tiny: Verified Skill Migration for Reducing LLM Fallbacks in Neuro-Symbolic Question Answering">
+  <meta property="og:description" content="Tiny explores Verified Skill Migration: independently verified LLM fallback experience is absorbed into compact procedural models while factual knowledge remains external and inspectable.">
+  <meta property="og:url" content="https://alexrev1989.github.io/tiny-verified-skill-migration/">
+  <link rel="canonical" href="https://alexrev1989.github.io/tiny-verified-skill-migration/">
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5d6875;
+      --paper: #fbfaf7;
+      --surface: #ffffff;
+      --line: #dce2e8;
+      --accent: #174f5c;
+      --accent-soft: #e7f1f2;
+      --gold: #a46a19;
+      --positive: #286946;
+      --negative: #8b3d38;
+      --shadow: 0 18px 60px rgba(26, 42, 55, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); }
+    a:focus-visible { outline: 3px solid #82b9c2; outline-offset: 3px; }
+    .serif { font-family: Georgia, "Times New Roman", serif; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5.5rem 1.25rem 4.5rem;
+      color: #f9fbfc;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(154, 205, 211, 0.18), transparent 30rem),
+        linear-gradient(135deg, #102d36 0%, #174f5c 58%, #1f6670 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      background-image: linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    .hero-inner, main, footer { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    .hero-inner { position: relative; z-index: 1; }
+    .eyebrow { margin: 0 0 1rem; color: #b7d9dc; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 900px; margin: 0; font-size: clamp(3.2rem, 10vw, 7.6rem); line-height: .86; letter-spacing: -.065em; }
+    .subtitle { max-width: 900px; margin: 1.6rem 0 0; font-size: clamp(1.35rem, 3.2vw, 2.4rem); line-height: 1.17; letter-spacing: -.025em; }
+    .author { margin: 1.25rem 0 0; color: #d4e7e9; font-weight: 700; }
+    .motto { max-width: 760px; margin: 2rem 0 0; padding-left: 1rem; border-left: 3px solid #d2a65c; color: #edf6f7; font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; font-style: italic; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: .68rem 1rem;
+      border: 1px solid rgba(255,255,255,.36);
+      border-radius: 999px;
+      color: white;
+      background: rgba(255,255,255,.08);
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 750;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button.primary { color: #13333c; background: #f7fbfb; border-color: #f7fbfb; }
+    .button:hover { transform: translateY(-2px); background: rgba(255,255,255,.16); }
+    .button.primary:hover { background: #e4f1f2; }
+    .button[aria-disabled="true"] { opacity: .62; cursor: not-allowed; }
+
+    main { padding: 4rem 0 5rem; }
+    section { scroll-margin-top: 2rem; margin: 0 0 4.75rem; }
+    .section-label { color: var(--gold); font-size: .75rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    h2 { margin: .3rem 0 1.25rem; font-size: clamp(1.85rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -.035em; }
+    h3 { margin: 0 0 .65rem; font-size: 1.08rem; }
+    .lede { max-width: 840px; color: #33414e; font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; }
+    .fine { color: var(--muted); font-size: .9rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .card { padding: 1.35rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+    .principle { border-left: 4px solid var(--gold); }
+    .claim { border-left: 4px solid var(--accent); background: var(--accent-soft); }
+
+    .lifecycle { display: grid; grid-template-columns: repeat(8, minmax(92px, 1fr)); gap: .6rem; align-items: stretch; overflow-x: auto; padding: .3rem .1rem 1rem; }
+    .step { position: relative; display: grid; place-items: center; min-height: 96px; padding: .75rem; border: 1px solid #cbd7dd; border-radius: 14px; background: white; text-align: center; font-size: .78rem; font-weight: 800; line-height: 1.3; }
+    .step:not(:last-child)::after { content: "→"; position: absolute; right: -.52rem; z-index: 2; color: var(--accent); font-size: 1.05rem; }
+    .step.verified { border-color: #d8bb80; background: #fff9ed; }
+    .step.promote { color: white; border-color: var(--accent); background: var(--accent); }
+
+    .architecture { display: grid; gap: .75rem; max-width: 780px; margin: 1.5rem auto 0; }
+    .arch-node { padding: .9rem 1rem; border: 1px solid #bdcbd2; border-radius: 14px; background: white; text-align: center; font-weight: 800; }
+    .arch-node::after { content: "↓"; display: block; height: 0; transform: translateY(.62rem); color: var(--accent); }
+    .arch-node.no-arrow::after { content: none; }
+    .branch { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .branch article { padding: 1rem; border-radius: 16px; }
+    .accept { border: 1px solid #b7d8c4; background: #edf8f1; }
+    .fallback { border: 1px solid #dbc79d; background: #fff9ed; }
+    .branch-title { display: block; margin-bottom: .55rem; color: var(--muted); font-size: .72rem; letter-spacing: .11em; text-transform: uppercase; }
+    .mini-flow { display: grid; gap: .5rem; }
+    .mini-flow span { padding: .62rem; border: 1px solid rgba(23,79,92,.18); border-radius: 10px; background: rgba(255,255,255,.72); text-align: center; font-weight: 750; }
+    .mini-flow span:not(:last-child)::after { content: " ↓"; color: var(--accent); }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+    .stat { padding: 1.2rem; border-top: 3px solid var(--accent); background: white; box-shadow: var(--shadow); }
+    .stat strong { display: block; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 2rem; line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: .86rem; }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: white; }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    th, td { padding: .82rem 1rem; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: #43515e; background: #f1f5f6; font-size: .78rem; letter-spacing: .055em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    td:not(:first-child), th:not(:first-child) { text-align: right; }
+    .pass { color: var(--positive); font-weight: 850; }
+    .fail { color: var(--negative); font-weight: 850; }
+    .warning { padding: 1rem 1.15rem; border: 1px solid #e1c997; border-radius: 14px; background: #fff8ea; }
+
+    pre { overflow-x: auto; padding: 1.2rem; border-radius: 14px; color: #e8f4f5; background: #112d35; font-size: .84rem; line-height: 1.55; }
+    footer { padding: 0 0 3rem; color: var(--muted); font-size: .86rem; }
+
+    @media (max-width: 800px) {
+      .hero { padding-top: 4rem; }
+      .grid, .branch, .stat-row { grid-template-columns: 1fr; }
+      .lifecycle { grid-template-columns: 1fr; overflow: visible; }
+      .step { min-height: auto; }
+      .step:not(:last-child)::after { content: "↓"; right: 50%; bottom: -.76rem; top: auto; transform: translateX(50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Open research project · Version 1.0.0</p>
+      <h1 class="serif">Tiny</h1>
+      <p class="subtitle serif">Verified Skill Migration for Reducing LLM Fallbacks in Neuro-Symbolic Question Answering</p>
+      <p class="author">Alexander Revyakin</p>
+      <p class="motto">Facts stay external; skills migrate inward.</p>
+      <nav class="actions" aria-label="Project links">
+        <a class="button primary" href="assets/tiny_verified_skill_migration_Alexander_Revyakin.pdf">Paper</a>
+        <a class="button" href="https://github.com/alexrev1989/tiny-verified-skill-migration">GitHub</a>
+        <a class="button" href="#results">Results</a>
+        <a class="button" href="#artifacts">Artifacts</a>
+        <a class="button" href="#cite">Cite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="abstract">
+      <span class="section-label">01 · Abstract</span>
+      <h2 class="serif">A conservative path from fallback experience to local capability</h2>
+      <p class="lede">Large language model cascades reduce inference cost by routing easy requests to smaller models, and distillation can further improve those models over time. We study a stricter neuro-symbolic variant: declarative facts remain external and replaceable, while only procedural skills migrate into learned parameters. We call this process verified skill migration (VSM).</p>
+      <p>A compact local model attempts a procedural subtask, a frozen competence gate escalates uncertain cases to an LLM, and the LLM outcome becomes a training trace only after independent verification using withheld ground truth or deterministic knowledge-graph evidence. Tiny instantiates VSM for Wikidata QA with entity linking and property mapping as migratable skills and a pinned local Wikidata snapshot as factual authority.</p>
+    </section>
+
+    <section id="idea">
+      <span class="section-label">02 · Core idea</span>
+      <h2 class="serif">The model learns procedures, not the factual store</h2>
+      <div class="grid">
+        <article class="card principle">
+          <h3>External factual authority</h3>
+          <p>Wikidata remains explicit, inspectable, replaceable, and accessed through deterministic tooling. Learned weights are not treated as the source of factual truth.</p>
+        </article>
+        <article class="card principle">
+          <h3>Verified migration</h3>
+          <p>A teacher proposal becomes training data only after independent outcome verification. Frozen competence gates decide whether a compact skill may act autonomously.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="section-label">03 · Lifecycle</span>
+      <h2 class="serif">Verified Skill Migration</h2>
+      <div class="lifecycle" aria-label="Unknown, fallback to LLM, independently verify, store trace, train compact skill, retest under frozen gate, promote, then reduce future fallback rate">
+        <div class="step">UNKNOWN</div>
+        <div class="step">FALLBACK TO LLM</div>
+        <div class="step verified">VERIFY OUTCOME</div>
+        <div class="step verified">STORE TRACE</div>
+        <div class="step">TRAIN SKILL</div>
+        <div class="step">FROZEN GATE</div>
+        <div class="step promote">PROMOTE</div>
+        <div class="step promote">FEWER FALLBACKS</div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <span class="section-label">04 · Architecture</span>
+      <h2 class="serif">A visible authority boundary</h2>
+      <div class="architecture" role="img" aria-label="A question goes to a compact skill and frozen competence gate. Accepted cases use a deterministic knowledge graph runtime. Rejected cases fall back to a large LLM, whose output is verified, stored as a trace, and used to train the compact skill.">
+        <div class="arch-node">Question</div>
+        <div class="arch-node">Compact Skill</div>
+        <div class="arch-node">Frozen Competence Gate</div>
+        <div class="branch">
+          <article class="accept">
+            <span class="branch-title">Accept</span>
+            <div class="mini-flow"><span>Deterministic KG / runtime</span><span>External factual answer</span></div>
+          </article>
+          <article class="fallback">
+            <span class="branch-title">Fallback</span>
+            <div class="mini-flow"><span>Large LLM</span><span>Verification</span><span>Verified Trace</span><span>Training → Compact Skill ↑</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <span class="section-label">05 · Formal results</span>
+      <h2 class="serif">Fewer real fallback calls, broader high-precision autonomy</h2>
+      <div class="warning"><strong>Scope:</strong> LC-QuAD 2.0 official TEST, preregistered structural subset, n = 1,074. This is not a full LC-QuAD 2.0 QA benchmark result.</div>
+      <div class="stat-row" style="margin-top: 1rem">
+        <div class="stat"><strong>207</strong><span>real Qwen calls saved</span></div>
+        <div class="stat"><strong>17.1%</strong><span>relative reduction in calls / question</span></div>
+        <div class="stat"><strong>96.51%</strong><span>learned zero-call precision</span></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Baseline</th><th>Learned</th></tr></thead>
+          <tbody>
+            <tr><td>Real Qwen calls</td><td>1,214</td><td>1,007</td></tr>
+            <tr><td>Calls / question</td><td>1.130</td><td>0.938</td></tr>
+            <tr><td>Entity hybrid accuracy</td><td>72.53%</td><td>74.02%</td></tr>
+            <tr><td>Property PID accuracy</td><td>66.57%</td><td>68.99%</td></tr>
+            <tr><td>Exact (entity, property) accuracy</td><td>63.59%</td><td>65.64%</td></tr>
+            <tr><td>Zero-call coverage</td><td>25.98%</td><td>34.64%</td></tr>
+            <tr><td>Zero-call precision</td><td>93.91%</td><td>96.51%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="statistics">
+      <span class="section-label">06 · Statistical interpretation</span>
+      <h2 class="serif">Fallback displacement is the robust result</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Call reduction</h3>
+          <p>Calls per question decreased from 1.130 to 0.938. The paired bootstrap 95% confidence interval for the absolute reduction is <strong>[0.153, 0.233]</strong> calls per question.</p>
+        </article>
+        <article class="card">
+          <h3>Accuracy</h3>
+          <p>Exact pair accuracy increased from 63.59% to 65.64%, but the paired confidence interval includes zero and McNemar p = 0.107. The paper does <strong>not</strong> claim a statistically significant accuracy improvement.</p>
+        </article>
+      </div>
+      <p class="card claim"><strong>Central claim.</strong> Verified Skill Migration substantially reduces real LLM fallback usage and expands a high-precision autonomous region, without evidence that the frozen accuracy non-inferiority requirement is violated.</p>
+    </section>
+
+    <section id="skills">
+      <span class="section-label">07 · Successful and failed skills</span>
+      <h2 class="serif">Promotion is earned, not assumed</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Skill</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Entity linking</td><td class="pass">PASS</td></tr>
+            <tr><td>Property mapping</td><td class="pass">PASS</td></tr>
+            <tr><td>Relation directionality</td><td class="fail">FAIL / not promoted</td></tr>
+            <tr><td>Answer-type prediction</td><td class="fail">FAIL / not promoted</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The negative studies are preserved in the paper. They show that VSM does not claim every candidate skill can be transferred automatically from an LLM.</p>
+    </section>
+
+    <section id="artifacts">
+      <span class="section-label">08 · Reproducibility</span>
+      <h2 class="serif">Frozen evidence with trace-level provenance</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Included evidence</h3>
+          <p>Formal result, statistical analysis, paired baseline and learned traces, executed v1.56.2 script snapshot, paper sources, and the original SHA-256 publication manifest.</p>
+        </article>
+        <article class="card">
+          <h3>Guardrail</h3>
+          <p>The LC-QuAD 2.0 TEST result is frozen. No new threshold tuning, prompt optimization, checkpoint selection, or rescue runs should be performed on this result.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cite">
+      <span class="section-label">09 · Citation</span>
+      <h2 class="serif">Cite Tiny</h2>
+      <p>DOI and arXiv identifiers are intentionally pending until the corresponding services issue real records.</p>
+      <pre>@article{revyakin2026tiny,
+  title  = {Tiny: Verified Skill Migration for Reducing LLM Fallbacks
+            in Neuro-Symbolic Question Answering},
+  author = {Revyakin, Alexander},
+  year   = {2026},
+  note   = {Version 1.0.0; DOI and arXiv identifier pending}
+}</pre>
+    </section>
+
+    <section id="publication-status">
+      <span class="section-label">Publication status</span>
+      <h2 class="serif">Version 1.0.0</h2>
+      <p>The canonical repository location is <a href="https://github.com/alexrev1989/tiny-verified-skill-migration">github.com/alexrev1989/tiny-verified-skill-migration</a>. The Zenodo DOI and arXiv identifier will be added only after the corresponding services issue real records.</p>
+      <p class="fine">Scientific content and the LC-QuAD 2.0 TEST result remain frozen.</p>
+    </section>
+  </main>
+
+  <footer>© 2026 Alexander Revyakin. Article content: CC BY 4.0. Original project code: Apache-2.0. Third-party terms remain applicable.</footer>
+</body>
+</html>
