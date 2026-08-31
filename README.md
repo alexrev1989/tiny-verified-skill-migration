@@ -4,7 +4,7 @@
 
 > Facts stay external; skills migrate inward.
 
-[Paper PDF](paper/tiny_verified_skill_migration_Alexander_Revyakin.pdf) · [Project page](https://alexrev1989.github.io/tiny-verified-skill-migration/) · [Reproduction artifacts](experiments/) · [Formal results](experiments/formal_test/RESULT.json) · [Latest release](https://github.com/alexrev1989/tiny-verified-skill-migration/releases/latest) · **DOI:** pending Zenodo deposit · **arXiv:** pending submission
+[Paper PDF](paper/tiny_verified_skill_migration_Alexander_Revyakin.pdf) · [Project page](https://alexrev1989.github.io/tiny-verified-skill-migration/) · [Reproduction artifacts](experiments/) · [Formal results](experiments/formal_test/RESULT.json) · [Latest release](https://github.com/alexrev1989/tiny-verified-skill-migration/releases/latest) · **DOI:** [10.5281/zenodo.22195009](https://doi.org/10.5281/zenodo.22195009) · **arXiv:** submitted; awaiting announcement
 
 ## What is Tiny?
 
@@ -95,7 +95,7 @@ Do not rerun or tune against the LC-QuAD 2.0 TEST split. The included artifacts 
 
 ## Citation
 
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff). A Zenodo DOI and arXiv identifier will be added only after those services issue real identifiers.
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff). The archived release DOI is [10.5281/zenodo.22195009](https://doi.org/10.5281/zenodo.22195009). The arXiv submission is under technical and moderation checks; its permanent identifier will be added after announcement.
 
 ## Licensing
 
@@ -103,4 +103,4 @@ Original code and project infrastructure are licensed under [Apache-2.0](LICENSE
 
 ## Publication status
 
-Version `1.0.0` is prepared for publication at [github.com/alexrev1989/tiny-verified-skill-migration](https://github.com/alexrev1989/tiny-verified-skill-migration). GitHub Pages and the GitHub Release will be activated with the first public release. A Zenodo DOI and arXiv record remain pending until those services issue real identifiers.
+Version `1.0.0` is public at [github.com/alexrev1989/tiny-verified-skill-migration](https://github.com/alexrev1989/tiny-verified-skill-migration), with a [project page](https://alexrev1989.github.io/tiny-verified-skill-migration/) and [GitHub Release](https://github.com/alexrev1989/tiny-verified-skill-migration/releases/tag/v1.0.0). The archived release DOI is [10.5281/zenodo.22195009](https://doi.org/10.5281/zenodo.22195009). The arXiv submission is awaiting announcement.

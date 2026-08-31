@@ -31,4 +31,4 @@ The accuracy point estimate is positive, but its paired confidence interval incl
 1. `tiny_verified_skill_migration_Alexander_Revyakin.pdf`
 2. `Tiny_Verified_Skill_Migration_FINAL_Alexander_Revyakin.zip`
 
-Zenodo DOI and arXiv metadata will be added only after the corresponding services issue real identifiers.
+Zenodo DOI: [10.5281/zenodo.22195009](https://doi.org/10.5281/zenodo.22195009). The permanent arXiv identifier will be added after announcement.

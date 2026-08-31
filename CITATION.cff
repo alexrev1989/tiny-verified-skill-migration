@@ -7,6 +7,7 @@ authors:
     family-names: Revyakin
 version: 1.0.0
 date-released: 2026-08-30
+doi: "10.5281/zenodo.22195009"
 license: CC-BY-4.0
 repository-code: "https://github.com/alexrev1989/tiny-verified-skill-migration"
 url: "https://alexrev1989.github.io/tiny-verified-skill-migration/"
